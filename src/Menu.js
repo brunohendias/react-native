@@ -6,9 +6,13 @@ import ParImpar from './components/parImpar'
 import Contador from './components/contador'
 import Evento from './components/evento'
 import Avo from './components/avo'
+import Indireta from './components/comunicacaoIndireta'
 
 export default createDrawerNavigator({
-	Avo: {
+	Indireta: {
+		screen: () => <Indireta />
+	},
+	Direta: {
 		screen: () => <Avo nome="Joao" sobrenome="Dias"/>
 	},
 	Evento: {

@@ -11,13 +11,14 @@ const Filho = props =>
 
 const Pai = props => 
 	<View>
-		<Text {...estilo} >Pai: {props.nome} {props.sobrenome} </Text>
-		{props.children}
+		<Text {...estilo}> Pai: {props.nome} {props.sobrenome} </Text>
+		{React.Children.map(props.children,
+			c => React.cloneElement(c, {...props, ...c.props}))}
 	</View>
 
 const Avo = props =>
 	<View style={Estilo.container}>
-		<Text {...estilo} >Avo: {props.nome} {props.sobrenome} </Text>
+		<Text {...estilo}> Avo: {props.nome} {props.sobrenome} </Text>
 		<Pai nome="Reni" sobrenome={props.sobrenome} >
 			<Filho nome="Bruno"/>
 			<Filho nome="Evelyn"/>
